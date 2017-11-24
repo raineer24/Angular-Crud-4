@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NgForm } from '@angular/forms';
 import { EmployeeService } from '../shared/employee.service';
 
 @Component({
@@ -14,4 +14,7 @@ export class EmployeeComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmnit(form : NgForm) {
+    this.employeeService.insertEmployee(form.value);
+  }
 }
