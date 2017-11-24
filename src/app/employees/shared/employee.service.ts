@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase,AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Employee } from './employee.model';
 
 @Injectable()
@@ -14,12 +14,12 @@ export class EmployeeService {
     return this.employeeList;
   }
 
-  insertEmployee(employee : Employee){
+  insertEmployee(empoloyee : Employee){
     this.employeeList.push({
-      name: employee.name,
-      position: employee.position,
-      office : employee.office,
-      salary : employee.salary
+      name: empoloyee.name,
+      position: empoloyee.position,
+      office : empoloyee.office,
+      salary : empoloyee.salary
 
     });
   }

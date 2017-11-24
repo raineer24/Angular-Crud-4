@@ -14,7 +14,7 @@ export class EmployeeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmnit(form : NgForm) {
+  onSubmit(form : NgForm) {
     this.employeeService.insertEmployee(form.value);
   }
 }
