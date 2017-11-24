@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireList } from 'angularfire2/database';
+
 
 import { EmployeeService } from '../shared/employee.service';
 import { Employee } from '../shared/employee.model';
@@ -10,11 +10,19 @@ import { Employee } from '../shared/employee.model';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-  employeelist : AngularFireList<Employee>;
+  employeelist : Employee[];
   constructor(private employeeService : EmployeeService) { }
 
   ngOnInit() {
-    this.employeeService.getData();
+    var x = this.employeeService.getData();
+    x.snapshotChanges().subscribe(item =>{
+        this.employeelist = [];
+        item.forEach(element => {
+            var y = element.payload.toJSON();
+            y["$key"] = element.key;
+            this.employeelist.push(y as Employee)
+        });
+    });
   }
 
 }
