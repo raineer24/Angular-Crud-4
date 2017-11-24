@@ -1,3 +1,7 @@
-<p>
-  Dummy 1
-</p>
+<form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+  <div class="form-group">
+      <label>Name</label>
+      <input class="form-control" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Full name">
+  </div>
+</form>
+
